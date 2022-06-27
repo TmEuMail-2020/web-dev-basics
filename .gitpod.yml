@@ -1,0 +1,11 @@
+tasks:
+  - init: |
+    cd 'Refactoring - First Example/before'
+    yarn install
+    yarn build 
+    cd 'Refactoring - First Example/after'
+    yarn install
+    yarn build 
+  - command: |
+      cd 'Refactoring - First Example'
+      code .
