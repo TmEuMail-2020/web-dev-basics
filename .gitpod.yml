@@ -6,17 +6,9 @@ tasks:
       cd 'Refactoring - First Example/after'
       yarn install
       yarn build 
-    # NOT WORKING due to persistent folder is only in /workspace (16-Jul-2022T21-40+0800)
-    #   # jetbrains projector install and intellij idea ultimate install
-    #   sudo apt-get -qq update
-    #   # Install required libraries for Projector + PhpStorm
-    #   sudo apt-get -qq install -y python3 python3-pip libxext6 libxrender1 libxtst6 libfreetype6 libxi6
-    #   # Install Projector
-    #   pip3 install projector-installer
-    #   # Install PhpStorm
-    #   mkdir -p ~/.projector/configs  # Prevents projector install from asking for the license acceptance
-    #   # Must use autoinstall with parameters to make IDEA Ultimate work - found out by https://github.com/JetBrains/projector-installer/blob/842c82b127df0087e3d7e85ab1561fbb36c13f1a/COMMANDS.md#ide-commands 
-    #   projector ide autoinstall --config-name Idea --ide-name "IntelliJ IDEA Ultimate 2022.1.2"
   - command: |
+      # must be in command, not init, not before due to only /workspace is persisted
+      # must all in oneline or apt-get install will break the installation zz-_28-_y22-0716-2216
+      sudo apt-get -qq update && sudo apt-get -qq install -y python3 python3-pip libxext6 libxrender1 libxtst6 libfreetype6 libxi6 && pip3 install projector-installer && mkdir -p ~/.projector/configs && projector ide autoinstall --config-name Idea --ide-name "IntelliJ IDEA Ultimate 2022.1.2"
       cd 'Refactoring - First Example'
       code .
