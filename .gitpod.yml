@@ -8,7 +8,7 @@ tasks:
       yarn build 
   - command: |
       # first cd to right directory
-      cd 'Refactoring - First Example
+      cd 'Refactoring - First Example'
       # must be in command, not init, not before due to only /workspace is persisted
       # must all in oneline or apt-get install will break the installation zz-_28-_y22-0716-2216
       # due to projector > v1.6 REQUIRES to have password (HANDSHAKE_TOKEN), also autoinstall --password too makes workflow unwieldly, now directly delete run.sh hardcoded HANDSHAKE_TOKEN zz-_30-_y22-0727-1637
