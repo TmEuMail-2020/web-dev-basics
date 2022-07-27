@@ -7,6 +7,8 @@ tasks:
       yarn install
       yarn build 
   - command: |
+      # first cd to right directory
+      cd 'Refactoring - First Example
       # must be in command, not init, not before due to only /workspace is persisted
       # must all in oneline or apt-get install will break the installation zz-_28-_y22-0716-2216
       # due to projector > v1.6 REQUIRES to have password (HANDSHAKE_TOKEN), also autoinstall --password too makes workflow unwieldly, now directly delete run.sh hardcoded HANDSHAKE_TOKEN zz-_30-_y22-0727-1637
@@ -14,5 +16,5 @@ tasks:
       # -i = in-place 
       # start IDE at current directory
       # all in ONE LINE to be easier for other non gitpod repo use zz-_30-_y22-0727-1654
-      sudo apt-get -qq update && sudo apt-get -qq install -y python3 python3-pip libxext6 libxrender1 libxtst6 libfreetype6 libxi6 && pip3 install projector-installer && mkdir -p ~/.projector/configs && projector ide autoinstall --config-name Idea --ide-name "IntelliJ IDEA Ultimate 2022.2"; sed -i '/HANDSHAKE_TOKEN/d' ~/.projector/configs/Idea/run.sh; cd 'Refactoring - First Example'; ~/.projector/configs/Idea/run.sh .
+      sudo apt-get -qq update && sudo apt-get -qq install -y python3 python3-pip libxext6 libxrender1 libxtst6 libfreetype6 libxi6 && pip3 install projector-installer && mkdir -p ~/.projector/configs && projector ide autoinstall --config-name Idea --ide-name "IntelliJ IDEA Ultimate 2022.2"; sed -i '/HANDSHAKE_TOKEN/d' ~/.projector/configs/Idea/run.sh; ~/.projector/configs/Idea/run.sh .
       
