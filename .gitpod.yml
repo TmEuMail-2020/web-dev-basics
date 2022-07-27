@@ -9,6 +9,11 @@ tasks:
   - command: |
       # must be in command, not init, not before due to only /workspace is persisted
       # must all in oneline or apt-get install will break the installation zz-_28-_y22-0716-2216
-      sudo apt-get -qq update && sudo apt-get -qq install -y python3 python3-pip libxext6 libxrender1 libxtst6 libfreetype6 libxi6 && pip3 install projector-installer && mkdir -p ~/.projector/configs && projector ide autoinstall --config-name Idea --ide-name "IntelliJ IDEA Ultimate 2022.1.2"
+      sudo apt-get -qq update && sudo apt-get -qq install -y python3 python3-pip libxext6 libxrender1 libxtst6 libfreetype6 libxi6 && pip3 install projector-installer && mkdir -p ~/.projector/configs && projector ide autoinstall --config-name Idea --ide-name "IntelliJ IDEA Ultimate 2022.2"
+      # due to projector > v1.6 REQUIRES to have password (HANDSHAKE_TOKEN), also autoinstall --password too makes workflow unwieldly, now directly delete run.sh hardcoded HANDSHAKE_TOKEN zz-_30-_y22-0727-1637
+      # Ref: https://github.com/JetBrains/projector-installer/commit/842c82b127df0087e3d7e85ab1561fbb36c13f1a & https://youtrack.jetbrains.com/issue/PRJ-904/Support-no-password-option-for-projector-installer
+      # -i = in-place 
+      sed -i '/HANDSHAKE_TOKEN/d' ~/.projector/.configs/Idea/run.sh  
       cd 'Refactoring - First Example'
-      code .
+      # start IDE at current directory
+      ~/.projector/configs/Idea/run.sh .
